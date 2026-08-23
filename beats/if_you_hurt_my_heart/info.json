@@ -1,9 +1,81 @@
 {
-    "title": "if you hurt my heart",
-    "bpm": 149,
-    "key": "F minor",
-    "license": "Free for profit 40/60",
+    "schema_version": "2.0",
+    "slug": "if-you-hurt-my-heart",
+    "title": "If You Hurt My Heart",
     "producer": "Kuoorex",
-    "youtube_url": "https://youtu.be/ySpO82Nhkws",
-    "contact": "kuoorexcontact@gmail.com"
+    "date_created": "2025-11-03",
+    "date_published": null,
+
+    "audio": {
+        "bpm": 149,
+        "key": "F minor",
+        "duration_seconds": null,
+        "energy": "medium",
+        "mood": "melodic_trap",
+        "instruments": ["piano", "808", "hi-hats", "strings"],
+        "tags": ["emotional", "melodic", "trap", "dark", "cinematic"]
+    },
+
+    "suno": {
+        "prompt": null,
+        "model": "v4",
+        "style_tags": ["melodic trap", "piano", "emotional"]
+    },
+
+    "license": {
+        "default": "free_for_profit_40_60",
+        "tiers": {
+            "free_for_profit": {
+                "enabled": true,
+                "split": "40/60",
+                "requirements": ["credit_prod_kuoorex", "contact_before_release"]
+            },
+            "lease_mp3": {
+                "enabled": true,
+                "price_eur": 25,
+                "streams_limit": 5000,
+                "units_limit": 2000,
+                "videos_limit": 1
+            },
+            "lease_wav": {
+                "enabled": true,
+                "price_eur": 50,
+                "streams_limit": 10000,
+                "units_limit": 5000,
+                "videos_limit": 1
+            },
+            "exclusive": {
+                "enabled": true,
+                "price_eur": 300,
+                "negotiable": true,
+                "note": "Beat removed from catalog after exclusive sale."
+            }
+        }
+    },
+
+    "distribution": {
+        "youtube_url": "https://youtu.be/ySpO82Nhkws",
+        "ready_youtube": true,
+        "youtube_published_at": "2025-11-03",
+        "r2_wav_key": null,
+        "r2_mp3_tagged_key": null,
+        "r2_preview_30s_key": null
+    },
+
+    "assets": {
+        "cover": "cover.jpg",
+        "waveform": "waveform.png",
+        "preview_30s": "preview_30s.mp3"
+    },
+
+    "splits": [
+        {
+            "role": "producer",
+            "artist": "Kuoorex",
+            "share": 100
+        }
+    ],
+
+    "contact": "kuoorexcontact@gmail.com",
+    "notes": "First beat in the catalog. Legacy entry migrated to schema v2."
 }

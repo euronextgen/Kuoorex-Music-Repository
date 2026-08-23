@@ -1,0 +1,136 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://kuoorex.com/schema/beat.schema.json",
+    "title": "Kuoorex Beat",
+    "description": "Schema for a Kuoorex beat info.json file (v2.0)",
+    "type": "object",
+    "required": ["schema_version", "slug", "title", "producer", "audio", "license", "splits"],
+    "properties": {
+        "schema_version": { "type": "string", "const": "2.0" },
+        "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "description": "URL-safe kebab-case identifier"
+        },
+        "title": { "type": "string", "minLength": 1 },
+        "producer": { "type": "string" },
+        "date_created": { "type": ["string", "null"], "format": "date" },
+        "date_published": { "type": ["string", "null"], "format": "date" },
+
+        "audio": {
+            "type": "object",
+            "required": ["bpm", "key", "mood"],
+            "properties": {
+                "bpm": { "type": "number", "minimum": 40, "maximum": 300 },
+                "key": { "type": "string" },
+                "duration_seconds": { "type": ["number", "null"] },
+                "energy": { "type": "string", "enum": ["low", "medium", "high"] },
+                "mood": {
+                    "type": "string",
+                    "enum": ["dark_trap", "melodic_trap", "drill", "rnb", "lofi", "hyperpop", "ambient", "experimental"]
+                },
+                "instruments": { "type": "array", "items": { "type": "string" } },
+                "tags": { "type": "array", "items": { "type": "string" } }
+            }
+        },
+
+        "suno": {
+            "type": "object",
+            "properties": {
+                "prompt": { "type": ["string", "null"] },
+                "model": { "type": "string" },
+                "style_tags": { "type": "array", "items": { "type": "string" } }
+            }
+        },
+
+        "license": {
+            "type": "object",
+            "required": ["default", "tiers"],
+            "properties": {
+                "default": {
+                    "type": "string",
+                    "enum": ["free_for_profit_40_60", "lease_only", "exclusive_only"]
+                },
+                "tiers": {
+                    "type": "object",
+                    "properties": {
+                        "free_for_profit": {
+                            "type": "object",
+                            "properties": {
+                                "enabled": { "type": "boolean" },
+                                "split": { "type": "string" },
+                                "requirements": { "type": "array", "items": { "type": "string" } }
+                            }
+                        },
+                        "lease_mp3": {
+                            "type": "object",
+                            "properties": {
+                                "enabled": { "type": "boolean" },
+                                "price_eur": { "type": "number" },
+                                "streams_limit": { "type": "number" },
+                                "units_limit": { "type": "number" },
+                                "videos_limit": { "type": "number" }
+                            }
+                        },
+                        "lease_wav": {
+                            "type": "object",
+                            "properties": {
+                                "enabled": { "type": "boolean" },
+                                "price_eur": { "type": "number" },
+                                "streams_limit": { "type": "number" },
+                                "units_limit": { "type": "number" },
+                                "videos_limit": { "type": "number" }
+                            }
+                        },
+                        "exclusive": {
+                            "type": "object",
+                            "properties": {
+                                "enabled": { "type": "boolean" },
+                                "price_eur": { "type": "number" },
+                                "negotiable": { "type": "boolean" }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+        "distribution": {
+            "type": "object",
+            "properties": {
+                "youtube_url": { "type": ["string", "null"], "format": "uri" },
+                "ready_youtube": { "type": "boolean" },
+                "youtube_published_at": { "type": ["string", "null"] },
+                "r2_wav_key": { "type": ["string", "null"] },
+                "r2_mp3_tagged_key": { "type": ["string", "null"] },
+                "r2_preview_30s_key": { "type": ["string", "null"] }
+            }
+        },
+
+        "assets": {
+            "type": "object",
+            "properties": {
+                "cover": { "type": "string" },
+                "waveform": { "type": "string" },
+                "preview_30s": { "type": "string" }
+            }
+        },
+
+        "splits": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "required": ["role", "artist", "share"],
+                "properties": {
+                    "role": { "type": "string", "enum": ["producer", "co_producer", "topliner", "songwriter", "sample_clearance"] },
+                    "artist": { "type": "string" },
+                    "share": { "type": "number", "minimum": 0, "maximum": 100 }
+                }
+            }
+        },
+
+        "contact": { "type": "string" },
+        "notes": { "type": "string" }
+    }
+}

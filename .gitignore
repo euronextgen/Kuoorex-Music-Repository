@@ -1,0 +1,65 @@
+# ─── Large audio files — stored in Cloudflare R2, not git ───────────────────
+*.wav
+*.aiff
+*.flac
+*.stems
+
+# Full-length MP3s (keep short previews)
+*.mp3
+!**/preview_30s.mp3
+!**/preview_*.mp3
+
+# ─── Working directories — raw drops and drafts ──────────────────────────────
+beats/_inbox/*
+beats/_drafts/*
+beats/_archive/*
+# Keep placeholders
+!beats/_inbox/.gitkeep
+!beats/_drafts/.gitkeep
+!beats/_archive/.gitkeep
+
+# ─── Generated / build artifacts ─────────────────────────────────────────────
+catalog/catalog.json
+docs/_site/
+.next/
+out/
+dist/
+build/
+node_modules/
+
+# ─── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# ─── Secrets ─────────────────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+secrets.json
+credentials.json
+token.json
+*_token.json
+
+# ─── OS ──────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Editor ──────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ─── Estado interno de herramientas de asistente, no contenido del negocio ──
+.omc/
+.claude/
+.codex/
+.state/

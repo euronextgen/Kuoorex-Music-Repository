@@ -1,0 +1,68 @@
+{
+  "schema_version": "2.0",
+  "slug": "tickin",
+  "title": "Tickin",
+  "producer": "Kuoorex",
+  "date_created": "2026-06-20",
+  "date_published": null,
+  "audio": {
+    "bpm": 198,
+    "key": "F minor",
+    "duration_seconds": null,
+    "energy": "high",
+    "mood": "dark_trap",
+    "instruments": ["808", "hi-hats", "synth", "bass"],
+    "tags": ["dark", "trap", "hard", "minimal"]
+  },
+  "license": {
+    "default": "free_for_profit_40_60",
+    "tiers": {
+      "free_for_profit": {
+        "enabled": true,
+        "split": "40/60",
+        "requirements": ["credit Kuoorex as producer"]
+      },
+      "lease_mp3": {
+        "enabled": true,
+        "price_eur": 25,
+        "streams_limit": 5000,
+        "units_limit": 2000,
+        "videos_limit": 1
+      },
+      "lease_wav": {
+        "enabled": true,
+        "price_eur": 50,
+        "streams_limit": 10000,
+        "units_limit": 5000,
+        "videos_limit": 2
+      },
+      "exclusive": {
+        "enabled": true,
+        "price_eur": 300,
+        "negotiable": true
+      }
+    }
+  },
+  "distribution": {
+    "youtube_url": null,
+    "ready_youtube": false,
+    "youtube_published_at": null,
+    "r2_wav_key": null,
+    "r2_mp3_tagged_key": null,
+    "r2_preview_30s_key": null
+  },
+  "assets": {
+    "cover": "cover.jpg",
+    "waveform": "waveform.png",
+    "preview_30s": "preview_30s.mp3"
+  },
+  "splits": [
+    {
+      "role": "producer",
+      "artist": "Kuoorex",
+      "share": 100
+    }
+  ],
+  "contact": "kuoorexcontact@gmail.com",
+  "notes": "BPM verificado en vivo contra el proyecto FL Studio real (2026-08-17). El proyecto se llamó anteriormente 'Te escribo demasiado' antes de renombrarse a 'Tickin'."
+}
